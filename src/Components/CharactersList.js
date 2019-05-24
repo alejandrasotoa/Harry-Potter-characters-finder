@@ -3,8 +3,10 @@ import "./CharactersList.css";
 
 class CharactersList extends React.Component {
   render () {
-    const {characters} = this.props;
-    const buildCharacters = characters.map (character => {
+    const { characters, filterValue } = this.props;
+    const buildCharacters = characters
+    .filter (character => character.name.toLowerCase().includes(filterValue.toLowerCase()))
+    .map (character => {
       return (
         <li
           key={character.id}

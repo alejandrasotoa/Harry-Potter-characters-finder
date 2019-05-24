@@ -31,7 +31,6 @@ class App extends React.Component {
   }
 
   render () {
-    console.log (this.state.filterValue);
     return (
       <div className="App">
         <div className="filter__container">
@@ -41,7 +40,10 @@ class App extends React.Component {
             onChange={this.handleFilter}
           />
         </div>
-        <CharactersList characters={this.state.characters} />
+        <CharactersList
+          characters={this.state.characters}
+          filterValue={this.state.filterValue}
+        />
       </div>
     );
   }
