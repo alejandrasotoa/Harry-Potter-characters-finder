@@ -1,27 +1,18 @@
 import React from 'react';
-import "./CharactersList.css";
+import CharacterCard from './CharacterCard';
+import './CharactersList.css';
 
 class CharactersList extends React.Component {
   render () {
-    const { characters, filterValue } = this.props;
+    const {characters, filterValue} = this.props;
     const buildCharacters = characters
-    .filter (character => character.name.toLowerCase().includes(filterValue.toLowerCase()))
-    .map (character => {
-      return (
-        <li
-          key={character.id}
-          id={character.id}
-          className="character__container"
-        >
-          <div
-            className="character__photo"
-            style={{backgroundImage: `url(${character.image})`}}
-          />
-          <h2 className="character__title">{character.name}</h2>
-          <p className="character__subtitle">{character.house}</p>
-        </li>
-      );
-    });
+      .filter (character =>
+        character.name.toLowerCase ().includes (filterValue.toLowerCase ())
+      )
+      .map (character => {
+        return <CharacterCard character={character} />;
+      });
+
     return (
       <div className="Home">
         <section className="search__result">

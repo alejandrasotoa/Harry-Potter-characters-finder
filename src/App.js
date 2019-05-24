@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import {fetchData} from './DataServices/DataServices';
-import CharactersList from './Components/CharactersList';
+import Home from './Components/Home';
 
 class App extends React.Component {
   constructor (props) {
@@ -31,18 +31,13 @@ class App extends React.Component {
   }
 
   render () {
+    const {filterValue, characters} = this.state;
     return (
       <div className="App">
-        <div className="filter__container">
-          <input
-            value={this.state.filterValue}
-            className="filter__form"
-            onChange={this.handleFilter}
-          />
-        </div>
-        <CharactersList
-          characters={this.state.characters}
-          filterValue={this.state.filterValue}
+        <Home
+          filterValue={filterValue}
+          characters={characters}
+          handleFilter={this.handleFilter}
         />
       </div>
     );
