@@ -10,7 +10,13 @@ class CharactersList extends React.Component {
         character.name.toLowerCase ().includes (filterValue.toLowerCase ())
       )
       .map (character => {
-        return <CharacterCard character={character} />;
+        return (
+          <li key={character.id} 
+            id={characters.id}
+            className="character__container">
+            <CharacterCard character={character} />
+          </li>
+        );
       });
 
     return (

@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import {fetchData} from './DataServices/DataServices';
 import Home from './Components/Home';
+import {Switch, Route} from 'react-router-dom';
+import CharacterDetails from './Components/CharacterDetails';
 
 class App extends React.Component {
   constructor (props) {
@@ -33,13 +35,20 @@ class App extends React.Component {
   render () {
     const {filterValue, characters} = this.state;
     return (
-      <div className="App">
-        <Home
-          filterValue={filterValue}
-          characters={characters}
-          handleFilter={this.handleFilter}
+      <Switch>
+        <Route exact path="/"
+          render={() => (
+            <Home
+              filterValue={filterValue}
+              characters={characters}
+              handleFilter={this.handleFilter}
+            />
+          )}
         />
-      </div>
+        <Route path="/detail/:id"
+          render={props => <CharacterDetails match={props.match} characters={characters} />}
+        />
+      </Switch>
     );
   }
 }

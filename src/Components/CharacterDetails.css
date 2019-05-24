@@ -1,0 +1,7 @@
+.detail__photo {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 200px;
+    width: 120px;
+}
