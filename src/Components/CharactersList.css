@@ -1,0 +1,20 @@
+.character__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 295px);
+    list-style: none;
+}
+
+.character__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   
+    align-items: center;
+}
+
+.character__photo {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 200px;
+    width: 120px;
+}

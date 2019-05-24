@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import {fetchData} from './DataServices/DataServices';
+import CharactersList from './Components/CharactersList';
 
 class App extends React.Component {
   constructor (props) {
@@ -24,35 +25,11 @@ class App extends React.Component {
   }
 
   render () {
-    const {characters} = this.state;
-    const charactersBuilder = characters.map (character => {
-      return (
-        <li
-          key={character.id}
-          id={character.id}
-          className="character__container"
-        >
-          <div
-            className="character__photo"
-            style={{backgroundImage: `url(${character.image})`}}
-          />
-          <h2 className="character__title">{character.name}</h2>
-          <p className="character__subtitle">{character.house}</p>
-        </li>
-      );
-    });
+
 
     return (
       <div className="App">
-
-        <div className="Home">
-          <section className="search__result">
-            <ul className="character__list">
-              {charactersBuilder}
-            </ul>
-          </section>
-        </div>
-        
+        <CharactersList characters={this.state.characters} />
       </div>
     );
   }
