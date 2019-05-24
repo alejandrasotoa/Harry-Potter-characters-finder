@@ -8,7 +8,9 @@ class App extends React.Component {
     super (props);
     this.state = {
       characters: [],
+      filterValue: '',
     };
+    this.handleFilter = this.handleFilter.bind (this);
   }
 
   componentDidMount () {
@@ -24,11 +26,21 @@ class App extends React.Component {
     });
   }
 
+  handleFilter (event) {
+    this.setState ({filterValue: event.currentTarget.value});
+  }
+
   render () {
-
-
+    console.log (this.state.filterValue);
     return (
       <div className="App">
+        <div className="filter__container">
+          <input
+            value={this.state.filterValue}
+            className="filter__form"
+            onChange={this.handleFilter}
+          />
+        </div>
         <CharactersList characters={this.state.characters} />
       </div>
     );
