@@ -13,7 +13,7 @@ class CharacterDetails extends React.Component {
       <React.Fragment>
         {newCard
           ? <div
-              className={`detail__container ${newCard.house.toLowerCase ()}__background`}
+              className={`detail__container ${newCard.house !== "" ? newCard.house.toLowerCase () : "no--house"}__background`}
             >
               <div className="detail__card--container">
                 <div
@@ -21,12 +21,12 @@ class CharacterDetails extends React.Component {
                   style={{backgroundImage: `url(${newCard.image})`}}
                 />
                 <div className="detail__info--container">
-                  <h2 className="detail__name">{`Nombre: ${newCard.name}`}</h2>
+                  <h2 className="detail__name">{newCard.name}</h2>
                   <p className="detail__house">{`Casa: ${newCard.house}`}</p>
                   <p className="detail__year">{`Año de nacimiento: ${newCard.yearOfBirth}`}</p>
                   <p className="detail__patronus">{`Patronus: ${newCard.patronus}`}</p>
                   <p className="detail__alive">{`Estado: ${newCard.alive ? 'Vivo' : 'Muerto'}`}</p>
-              <Link to="/">Volver</Link>
+              <Link to="/"><i className="fas fa-arrow-circle-left detail__icon" title="Volver atrás"></i></Link>
                 </div>
               </div>
             </div>

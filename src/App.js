@@ -13,6 +13,7 @@ class App extends React.Component {
       filterValue: '',
     };
     this.handleFilter = this.handleFilter.bind (this);
+    this.handleClickSearch =this.handleClickSearch.bind(this);
   }
 
   componentDidMount () {
@@ -32,6 +33,10 @@ class App extends React.Component {
     this.setState ({filterValue: event.currentTarget.value});
   }
 
+  handleClickSearch (event) {
+    console.log(event.currentTarget);
+  }
+
   render () {
     const {filterValue, characters} = this.state;
     return (
@@ -42,6 +47,7 @@ class App extends React.Component {
               filterValue={filterValue}
               characters={characters}
               handleFilter={this.handleFilter}
+              handleClickSearch={this.handleClickSearch}
             />
           )}
         />

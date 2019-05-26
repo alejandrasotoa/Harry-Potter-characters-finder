@@ -1,7 +1,3 @@
-.search__result {
-    overflow-y: auto;
-}
-
 .character__list {
     display: grid;
     grid-template-columns: repeat(auto-fit, 250px);

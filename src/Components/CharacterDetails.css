@@ -7,6 +7,9 @@
     margin:0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Mandali', sans-serif;
+    line-height: 15px;
+    font-size: 20px;
 }
 
 .gryffindor__background {
@@ -29,6 +32,11 @@
     background-size: cover;
 }
 
+.no--house__background {
+    background-image: url('../Images/no-house-back.jpg');
+    background-size: cover;
+}
+
 .detail__card--container {
     margin: 0;
     padding: 0;
@@ -36,6 +44,8 @@
     height: 300px;
     background-color: rgba(255, 255, 255, 0.5);
     display: flex;
+    align-items: center;
+    box-shadow: 5px 5px 10px black;
 }
 
 .detail__photo {
@@ -48,4 +58,9 @@
 
 .detail__info--container{
     margin: 0 20px;
+}
+
+.detail__icon {
+    color: rgb(171,42,62);
+    font-size: 50px;
 }

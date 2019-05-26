@@ -1,5 +1,4 @@
 .app__container {
-    /* background: url('../Images/backpergamin.jpg') center center no-repeat; */
     box-sizing: border-box;
     font-family: 'Mandali', sans-serif;
     padding: 0;
@@ -11,13 +10,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* background: rgba(171,42,62, 0.9); */
     background: rgb(171,42,62);
     width: 100%;    
     box-sizing: border-box;
     padding: 20px;
     margin: 0;
     position: fixed;
+    z-index: 1;
     top: 0;
     right: 0;
     height: 100px;
@@ -38,4 +37,9 @@
 
 .filter__icon {
     font-size: 20px;
+    cursor: pointer;
+}
+
+.filter__icon:hover {
+    color:white;
 }
