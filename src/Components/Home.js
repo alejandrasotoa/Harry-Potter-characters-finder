@@ -2,6 +2,7 @@ import React from 'react';
 import './Home.css';
 import CharactersList from './CharactersList';
 import Filters from './Filters';
+import PropTypes from 'prop-types';
 
 class Home extends React.Component {
   render () {
@@ -16,4 +17,9 @@ class Home extends React.Component {
   }
 }
 
+Home.propTypes = {
+  characters: PropTypes.array,
+  filterValue: PropTypes.string,
+  handleFilter: PropTypes.func
+};
 export default Home;

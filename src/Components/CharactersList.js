@@ -1,6 +1,7 @@
 import React from 'react';
 import CharacterCard from './CharacterCard';
 import './CharactersList.css';
+import PropTypes from 'prop-types';
 
 class CharactersList extends React.Component {
   render () {
@@ -30,5 +31,10 @@ class CharactersList extends React.Component {
     );
   }
 }
+
+CharactersList.propTypes = {
+  characters: PropTypes.array,
+  filterValue: PropTypes.string
+};
 
 export default CharactersList;

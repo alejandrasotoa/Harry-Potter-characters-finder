@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './CharacterDetails.css';
-
-//nombre, foto y casa, el año de nacimiento, el patronus y si está vivo o muerto al final de la saga
+import PropTypes from 'prop-types';
 
 class CharacterDetails extends React.Component {
   render () {
@@ -33,5 +32,9 @@ class CharacterDetails extends React.Component {
     );
   }
 }
+
+CharacterDetails.propTypes = {
+  characters: PropTypes.array
+};
 
 export default CharacterDetails;
