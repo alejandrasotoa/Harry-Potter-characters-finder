@@ -10,11 +10,15 @@ class App extends React.Component {
     super (props);
     this.state = {
       characters: [],
+      sortedCharacters: null,
       filterValue: '',
-      searchClicked: false
+      searchClicked: false,
+      favoriteCharacters: []
     };
     this.handleFilter = this.handleFilter.bind (this);
-    this.handleClickSearch =this.handleClickSearch.bind(this);
+    this.handleClickSearch = this.handleClickSearch.bind (this);
+    this.handleSort = this.handleSort.bind (this);
+    this.handleFavorites = this.handleFavorites.bind(this);
   }
 
   componentDidMount () {
@@ -35,14 +39,81 @@ class App extends React.Component {
   }
 
   handleClickSearch () {
-    this.setState(prevState => ({searchClicked: !prevState.searchClicked}));
+    this.setState (prevState => ({searchClicked: !prevState.searchClicked}));
+  }
+
+  sortAlphabetical () {
+    const sortedArray = [...this.state.characters];
+    const sorted = sortedArray.sort ((a, b) => {
+      if (a.name > b.name) {
+        return 1;
+      }
+      if (a.name < b.name) {
+        return -1;
+      }
+      return 0;
+    });
+    this.setState ({
+      sortedCharacters: sorted
+    });
+  }
+
+  sortAge () {
+    const sortedArray = [...this.state.characters];
+    const sorted = sortedArray.sort ((a, b) => {
+      if (b.yearOfBirth > a.yearOfBirth) {
+        return 1;
+      }
+      if (b.yearOfBirth < a.yearOfBirth) {
+        return -1;
+      }
+      return 0;
+    });
+    this.setState ({
+      sortedCharacters: sorted
+    });
+  }
+
+  handleSort (event) {
+    const sortValue = event.currentTarget.value;
+    if (sortValue === "no-filter") {
+      this.setState ({
+        sortedCharacters: null
+      });
+    } else if (sortValue === "alphabetical") {
+      this.sortAlphabetical ();
+    } else {
+      this.sortAge ();
+    }
+  }
+
+  handleFavorites (event) {
+    const newFavorite = event.currentTarget.parentElement.id;
+    this.setState(prevState => {
+      let setFavorite;
+      if (prevState.favoriteCharacters.includes(newFavorite)) {
+        setFavorite = prevState.favoriteCharacters.filter(fav => fav !== newFavorite);
+      } else {
+        setFavorite = [...prevState.favoriteCharacters, newFavorite];
+      }
+      return {favoriteCharacters: setFavorite}
+    })
   }
 
   render () {
-    const {filterValue, characters, searchClicked} = this.state;
+    console.log(this.state.favoriteCharacters);
+    const {
+      filterValue,
+      characters,
+      searchClicked,
+      sortedCharacters,
+      favoriteCharacters
+    } = this.state;
     return (
       <Switch>
-        <Route exact path="/"
+        <Route
+          exact
+          path="/"
           render={() => (
             <Home
               filterValue={filterValue}
@@ -50,11 +121,18 @@ class App extends React.Component {
               handleFilter={this.handleFilter}
               handleClickSearch={this.handleClickSearch}
               searchClicked={searchClicked}
+              handleSort={this.handleSort}
+              sortedCharacters= {sortedCharacters}
+              handleFavorites={this.handleFavorites}
+              favoriteCharacters={favoriteCharacters}
             />
           )}
         />
-        <Route path="/detail/:id"
-          render={props => <CharacterDetails match={props.match} characters={characters} />}
+        <Route
+          path="/detail/:id"
+          render={props => (
+            <CharacterDetails match={props.match} characters={characters} />
+          )}
         />
       </Switch>
     );

@@ -16,6 +16,7 @@
 .filter__form {
     margin: 10px;
     box-sizing: border-box;
+    font-family: 'Mandali', sans-serif;
 }
 
 .filter__label {
@@ -27,8 +28,16 @@
     border: 0;
     border-radius: 5px;
     padding: 0 10px;
+    background-color: white;
 }
 
 .hidden {
     display: none;
+}
+
+.order__form {
+    height: 30px;
+    border: 0;
+    border-radius: 5px;
+    padding: 0 10px;
 }

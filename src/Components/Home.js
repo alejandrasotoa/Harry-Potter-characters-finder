@@ -13,6 +13,10 @@ class Home extends React.Component {
       handleFilter,
       handleClickSearch,
       searchClicked,
+      handleSort,
+      sortedCharacters,
+      handleFavorites,
+      favoriteCharacters
     } = this.props;
 
     return (
@@ -27,7 +31,7 @@ class Home extends React.Component {
             <h1 className="header__title">Buscador de personajes</h1>
           </div>
           <i
-            className="fas fa-search filter__icon"
+            className={`fas fa-search filter__icon ${searchClicked ? "clicked" : "" }`} 
             onClick={handleClickSearch}
           />
         </header>
@@ -36,8 +40,16 @@ class Home extends React.Component {
             handleFilter={handleFilter}
             filterValue={filterValue}
             searchClicked={searchClicked}
+            handleSort={handleSort}
+            sortedCharacters={sortedCharacters}
           />
-          <CharactersList characters={characters} filterValue={filterValue} />
+          <CharactersList
+            characters={characters}
+            filterValue={filterValue}
+            sortedCharacters={sortedCharacters}
+            handleFavorites={handleFavorites}
+            favoriteCharacters={favoriteCharacters}
+          />
         </main>
       </div>
     );
@@ -49,5 +61,11 @@ Home.propTypes = {
   filterValue: PropTypes.string,
   handleFilter: PropTypes.func,
   handleClickSearch: PropTypes.func,
+  searchClicked: PropTypes.bool,
+  handleSort: PropTypes.func,
+  sortedCharacters: PropTypes.array,
+  handleFavorites: PropTypes.func,
+  favoriteCharacters: PropTypes.array
 };
+
 export default Home;

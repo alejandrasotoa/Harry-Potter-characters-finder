@@ -5,8 +5,15 @@ import PropTypes from 'prop-types';
 
 class CharactersList extends React.Component {
   render () {
-    const {characters, filterValue} = this.props;
-    const buildCharacters = characters
+    const {
+      characters,
+      filterValue,
+      sortedCharacters,
+      handleFavorites,
+      favoriteCharacters
+    } = this.props;
+    const arrayList = sortedCharacters === null ? characters : sortedCharacters;
+    const buildCharacters = arrayList
       .filter (character =>
         character.name.toLowerCase ().includes (filterValue.toLowerCase ())
       )
@@ -17,7 +24,11 @@ class CharactersList extends React.Component {
             id={characters.id}
             className="character__container"
           >
-            <CharacterCard character={character} />
+            <CharacterCard
+              character={character}
+              handleFavorites={handleFavorites}
+              favoriteCharacters= {favoriteCharacters}
+            />
           </li>
         );
       });
@@ -35,6 +46,9 @@ class CharactersList extends React.Component {
 CharactersList.propTypes = {
   characters: PropTypes.array,
   filterValue: PropTypes.string,
+  sortedCharacters: PropTypes.array,
+  handleFavorites: PropTypes.func,
+  favoriteCharacters: PropTypes.array
 };
 
 export default CharactersList;

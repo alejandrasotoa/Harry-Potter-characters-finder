@@ -43,7 +43,7 @@
     height: 300px;
     width: 250px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: flex-end;
     position: absolute;
 }
@@ -57,9 +57,11 @@
 
 .characters__icon {
     font-size: 30px;
-    margin-left: 15px; 
+    margin-right: 15px; 
     visibility: hidden;
     margin-bottom: 20px;
+    transition: color ease 0.2s;
+    cursor: pointer;
 }
 
 .character__photo:hover .characters__icon{
@@ -68,10 +70,9 @@
 
 .characters__icon:first-child {
     margin-left: 0;
-    transition: color ease 0.2s;
 }
 
-.characters__icon:first-child:hover {
+.characters__icon:hover {
     color: white;
     transform: scale(1.1);
 }
@@ -106,4 +107,9 @@
 
 .no-house__icon {
     font-size: 30px;
+}
+
+.favorite {
+    visibility: visible;
+    color: white;
 }

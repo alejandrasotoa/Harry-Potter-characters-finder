@@ -42,3 +42,7 @@
 .filter__icon:hover {
     color:white;
 }
+
+.clicked {
+    color:white;
+}

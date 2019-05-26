@@ -6,17 +6,21 @@ import PropTypes from 'prop-types';
 class CharacterCard extends React.Component {
   render () {
     const {id, image, name, house} = this.props.character;
+    const {handleFavorites, favoriteCharacters} = this.props;
     return (
       <React.Fragment>
         <div
           className="character__photo"
           style={{backgroundImage: `url(${image})`}}
         >
-          <div className="character__more">
+          <div className="character__more" id={id}>
             <Link to={`/detail/${id}`} className="characters__link">
               <i className="fas fa-info-circle characters__icon" />
             </Link>
-            <i className="fas fa-heart characters__icon favorite--icon" />
+            <i
+              className={`fas fa-heart characters__icon ${favoriteCharacters.includes (id) ? 'favorite' : 'favorite--icon'}`}
+              onClick={handleFavorites}
+            />
           </div>
         </div>
         <div className="character__info">
@@ -40,6 +44,8 @@ CharacterCard.propTypes = {
   image: PropTypes.string,
   name: PropTypes.string,
   house: PropTypes.string,
+  handleFavorites: PropTypes.func,
+  favoriteCharacters: PropTypes.array,
 };
 
 export default CharacterCard;
