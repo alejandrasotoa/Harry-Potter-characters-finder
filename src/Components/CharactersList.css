@@ -1,3 +1,7 @@
+.search__result {
+    height: 100%;
+}
+
 .character__list {
     display: grid;
     grid-template-columns: repeat(auto-fit, 250px);
@@ -6,7 +10,7 @@
     text-align: center;
     line-height: 25px;
     box-sizing: border-box;
-    padding: 160px 0 0;
+    padding: 180px 0 0;
     margin: 0 auto;
-    max-width: 1080px; 
+    max-width: 1080px;
 }

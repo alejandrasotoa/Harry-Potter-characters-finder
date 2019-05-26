@@ -11,6 +11,7 @@ class App extends React.Component {
     this.state = {
       characters: [],
       filterValue: '',
+      searchClicked: false
     };
     this.handleFilter = this.handleFilter.bind (this);
     this.handleClickSearch =this.handleClickSearch.bind(this);
@@ -33,12 +34,12 @@ class App extends React.Component {
     this.setState ({filterValue: event.currentTarget.value});
   }
 
-  handleClickSearch (event) {
-    console.log(event.currentTarget);
+  handleClickSearch () {
+    this.setState(prevState => ({searchClicked: !prevState.searchClicked}));
   }
 
   render () {
-    const {filterValue, characters} = this.state;
+    const {filterValue, characters, searchClicked} = this.state;
     return (
       <Switch>
         <Route exact path="/"
@@ -48,6 +49,7 @@ class App extends React.Component {
               characters={characters}
               handleFilter={this.handleFilter}
               handleClickSearch={this.handleClickSearch}
+              searchClicked={searchClicked}
             />
           )}
         />

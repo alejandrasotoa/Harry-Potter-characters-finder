@@ -1,9 +1,8 @@
 .app__container {
     box-sizing: border-box;
     font-family: 'Mandali', sans-serif;
-    padding: 0;
+    padding: 0 0 20px;
     margin: 0;
-    background-color: #202020;
 }
 
 .app__header {

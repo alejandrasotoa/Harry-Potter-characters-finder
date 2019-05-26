@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 
 class Filters extends React.Component {
   render () {
-    const {filterValue, handleFilter} = this.props;
+    const {filterValue, handleFilter, searchClicked} = this.props;
     return (
-      <div className="filter__container hidden">
+      <div className={`filter__container ${searchClicked ? "" : "hidden" }`}>
       <label htmlFor="filter__form filter__label">Filtrar por nombre</label>
         <input 
           className="filter__form filter__input"
@@ -23,7 +23,8 @@ class Filters extends React.Component {
 
 Filters.propTypes = {
   filterValue: PropTypes.string,
-  handleFilter: PropTypes.func
+  handleFilter: PropTypes.func,
+  searchClicked: PropTypes.bool
 };
 
 export default Filters;

@@ -23,7 +23,7 @@ class CharacterCard extends React.Component {
           {house !== ''
             ? <div className={`${house.toLowerCase ()}__logo`} title={house} />
             : <i
-                class="far fa-times-circle no-house__icon"
+                className="far fa-times-circle no-house__icon"
                 title="No estudió en Hogwarts"
               />}
           <h2 className="character__title">{name}</h2>
