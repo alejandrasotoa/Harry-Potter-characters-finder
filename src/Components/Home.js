@@ -3,16 +3,30 @@ import './Home.css';
 import CharactersList from './CharactersList';
 import Filters from './Filters';
 import PropTypes from 'prop-types';
+import hpLogo from '../Images/hp-logo.svg';
 
 class Home extends React.Component {
   render () {
-    const { filterValue, characters, handleFilter } = this.props;
+    const {filterValue, characters, handleFilter} = this.props;
 
     return (
-      <React.Fragment>
-        <Filters handleFilter={handleFilter} filterValue={filterValue} />
-        <CharactersList characters={characters} filterValue={filterValue} />
-      </React.Fragment>
+      <div className="app__container">
+          <header className="app__header">
+            <div className="header__container">
+              <img
+                className="header__logo"
+                src={hpLogo}
+                alt="Logo de Harry Potter"
+              />
+              <h1 className="header__title">Buscador de personajes</h1>
+            </div>
+            <i className="fas fa-search filter__icon" />
+          </header>
+          <main>
+            <Filters handleFilter={handleFilter} filterValue={filterValue} />
+            <CharactersList characters={characters} filterValue={filterValue} />
+          </main>
+      </div>
     );
   }
 }
@@ -20,6 +34,6 @@ class Home extends React.Component {
 Home.propTypes = {
   characters: PropTypes.array,
   filterValue: PropTypes.string,
-  handleFilter: PropTypes.func
+  handleFilter: PropTypes.func,
 };
 export default Home;

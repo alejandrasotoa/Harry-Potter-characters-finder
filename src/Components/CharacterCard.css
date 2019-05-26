@@ -1,14 +1,109 @@
+.characters__link {
+    color: black;
+}
+
 .character__container {
     display: flex;
     flex-direction: column;
     justify-content: center;   
     align-items: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+    background: white;
+}
+
+.character__info {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.character__title {
+    text-align: start;
+    width: 80%;
 }
 
 .character__photo {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    height: 200px;
-    width: 120px;
+    position: relative;
+    height: 300px;
+    width: 250px;
+}
+
+.character__photo:hover .character__more{
+    background-color:rgba(171,42,62,0.3);
+}
+
+.character__more {
+    height: 300px;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: absolute;
+}
+
+.character__info--detail {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.characters__icon {
+    font-size: 30px;
+    margin-left: 15px; 
+    visibility: hidden;
+    margin-bottom: 20px;
+}
+
+.character__photo:hover .characters__icon{
+    visibility: visible;
+}
+
+.characters__icon:first-child {
+    margin-left: 0;
+    transition: color ease 0.2s;
+}
+
+.characters__icon:first-child:hover {
+    color: white;
+    transform: scale(1.1);
+}
+
+.gryffindor__logo {
+    background-image: url('../Images/gryffindor-logo.jpg');
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+}
+
+.slytherin__logo {
+    background-image: url('../Images/slytherin-logo.jpg');
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+}
+
+.hufflepuff__logo {
+    background-image: url('../Images/hufflepuff-logo.jpg');
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+}
+
+.ravenclaw__logo {
+    background-image: url('../Images/ravenclaw-logo.jpg');
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+}
+
+.no-house__icon {
+    font-size: 30px;
 }

@@ -1,7 +1,51 @@
+.detail__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.gryffindor__background {
+    background-image: url('../Images/gryffindor-back.jpg');
+    background-size: cover;
+}
+
+.slytherin__background {
+    background-image: url('../Images/slytherin-back.jpg');
+    background-size: cover;
+}
+
+.hufflepuff__background {
+    background-image: url('../Images/hufflepuff-back.jpg');
+    background-size: cover;
+}
+
+.ravenclaw__background {
+    background-image: url('../Images/ravenclaw-back.jpg');
+    background-size: cover;
+}
+
+.detail__card--container {
+    margin: 0;
+    padding: 0;
+    width: 600px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.5);
+    display: flex;
+}
+
 .detail__photo {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    height: 200px;
-    width: 120px;
+    height: 300px;
+    width: 250px;
+}
+
+.detail__info--container{
+    margin: 0 20px;
 }

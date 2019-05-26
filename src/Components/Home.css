@@ -1,0 +1,41 @@
+.app__container {
+    /* background: url('../Images/backpergamin.jpg') center center no-repeat; */
+    box-sizing: border-box;
+    font-family: 'Mandali', sans-serif;
+    padding: 0;
+    margin: 0;
+    background-color: #202020;
+}
+
+.app__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background: rgba(171,42,62, 0.9); */
+    background: rgb(171,42,62);
+    width: 100%;    
+    box-sizing: border-box;
+    padding: 20px;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100px;
+}
+
+.header__container {
+    display: flex;
+}
+
+.header__logo {
+    height: 60px;
+    margin-right: 20px; 
+}
+
+.header__title {
+    margin: 0;
+}
+
+.filter__icon {
+    font-size: 20px;
+}

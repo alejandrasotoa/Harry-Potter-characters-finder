@@ -11,10 +11,25 @@ class CharacterCard extends React.Component {
         <div
           className="character__photo"
           style={{backgroundImage: `url(${image})`}}
-        />
-        <h2 className="character__title">{name}</h2>
-        <p className="character__subtitle">{house}</p>
-        <Link to={`/detail/${id}`}>Detalles</Link>
+        >
+          <div className="character__more">
+            <Link to={`/detail/${id}`} className="characters__link">
+              <i className="fas fa-info-circle characters__icon" />
+            </Link>
+            <i className="fas fa-heart characters__icon favorite--icon" />
+          </div>
+        </div>
+        <div className="character__info">
+          {house !== ''
+            ? <div className={`${house.toLowerCase ()}__logo`} title={house} />
+            : <i
+                class="far fa-times-circle no-house__icon"
+                title="No estudió en Hogwarts"
+              />}
+          <h2 className="character__title">{name}</h2>
+        </div>
+
+        <div className="character__info--detail" />
       </React.Fragment>
     );
   }
@@ -24,7 +39,7 @@ CharacterCard.propTypes = {
   id: PropTypes.string,
   image: PropTypes.string,
   name: PropTypes.string,
-  house: PropTypes.string
+  house: PropTypes.string,
 };
 
 export default CharacterCard;

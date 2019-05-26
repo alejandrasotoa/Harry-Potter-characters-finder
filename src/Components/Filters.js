@@ -6,10 +6,10 @@ class Filters extends React.Component {
   render () {
     const {filterValue, handleFilter} = this.props;
     return (
-      <div className="filter__container">
-      <label htmlFor="filter__form">Filtrar por nombre</label>
+      <div className="filter__container hidden">
+      <label htmlFor="filter__form filter__label">Filtrar por nombre</label>
         <input 
-          className="filter__form"
+          className="filter__form filter__input"
           onChange={handleFilter}
           value={filterValue}
           type="text"

@@ -12,29 +12,29 @@ class CharactersList extends React.Component {
       )
       .map (character => {
         return (
-          <li key={character.id} 
+          <li
+            key={character.id}
             id={characters.id}
-            className="character__container">
+            className="character__container"
+          >
             <CharacterCard character={character} />
           </li>
         );
       });
 
     return (
-      <div className="Home">
-        <section className="search__result">
-          <ul className="character__list">
-            {buildCharacters}
-          </ul>
-        </section>
-      </div>
+      <section className="search__result">
+        <ul className="character__list">
+          {buildCharacters}
+        </ul>
+      </section>
     );
   }
 }
 
 CharactersList.propTypes = {
   characters: PropTypes.array,
-  filterValue: PropTypes.string
+  filterValue: PropTypes.string,
 };
 
 export default CharactersList;
