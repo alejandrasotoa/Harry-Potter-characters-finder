@@ -16,6 +16,11 @@
     padding: 300px 0 0; 
 }
 
+.no-results__paragraph {
+    color: white;
+    font-size: 30px;
+}
+
 .character__container {
     box-sizing: border-box;
     width: 250px;

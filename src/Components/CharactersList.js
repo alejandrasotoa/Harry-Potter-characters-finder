@@ -10,7 +10,7 @@ class CharactersList extends React.Component {
       filterValue,
       sortedCharacters,
       handleFavorites,
-      favoriteCharacters
+      favoriteCharacters,
     } = this.props;
     const arrayList = sortedCharacters === null ? characters : sortedCharacters;
     const buildCharacters = arrayList
@@ -27,7 +27,7 @@ class CharactersList extends React.Component {
             <CharacterCard
               character={character}
               handleFavorites={handleFavorites}
-              favoriteCharacters= {favoriteCharacters}
+              favoriteCharacters={favoriteCharacters}
             />
           </li>
         );
@@ -36,7 +36,9 @@ class CharactersList extends React.Component {
     return (
       <section className="search__result">
         <ul className="character__list">
-          {buildCharacters}
+          {buildCharacters.length === 0 && filterValue
+            ? <p className="no-results__paragraph">No hay resultados</p>
+            : buildCharacters}
         </ul>
       </section>
     );
@@ -48,7 +50,7 @@ CharactersList.propTypes = {
   filterValue: PropTypes.string,
   sortedCharacters: PropTypes.array,
   handleFavorites: PropTypes.func,
-  favoriteCharacters: PropTypes.array
+  favoriteCharacters: PropTypes.array,
 };
 
 export default CharactersList;

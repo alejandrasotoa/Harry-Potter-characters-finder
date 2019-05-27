@@ -50,7 +50,7 @@
 }
 
 .hidden__filter {
-    transform: translateY(-100px);
+    transform: translateY(-120px);
     animation-name: hidde-filters;
     animation-duration: 1s;
 }
@@ -61,7 +61,7 @@
     }
 
     100% {
-        transform: translateY(-100px)
+        transform: translateY(-120px)
     }
 }
 
