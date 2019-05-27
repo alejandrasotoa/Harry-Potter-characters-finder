@@ -39,13 +39,13 @@
 
 .detail__card--container {
     margin: 0;
-    padding: 0;
-    width: 600px;
-    height: 300px;
+    padding: 20px 0;
+    width: 300px;
     background-color: rgba(255, 255, 255, 0.5);
     display: flex;
     align-items: center;
     box-shadow: 5px 5px 10px black;
+    flex-direction: column;
 }
 
 .detail__photo {
@@ -63,4 +63,13 @@
 .detail__icon {
     color: rgb(171,42,62);
     font-size: 50px;
+}
+
+@media all and (min-width: 780px) {
+    .detail__card--container {
+        flex-direction: row;
+        width: 600px;
+        height: 300px;
+        padding: 20px;
+    }
 }
