@@ -7,8 +7,7 @@
 
 .app__header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
     background: rgb(171,42,62);
     width: 100%;    
     box-sizing: border-box;
@@ -18,25 +17,29 @@
     z-index: 1;
     top: 0;
     right: 0;
-    height: 100px;
+    height: 180px;
 }
 
 .header__container {
     display: flex;
+    flex-direction: column;
 }
 
 .header__logo {
     height: 60px;
-    margin-right: 20px; 
 }
 
 .header__title {
     margin: 0;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
 .filter__icon {
     font-size: 20px;
     cursor: pointer;
+    text-align: center;
 }
 
 .filter__icon:hover {
@@ -45,4 +48,27 @@
 
 .clicked {
     color:white;
+}
+
+@media all and (min-width:768px) {
+    .header__logo {
+        margin-right: 20px; 
+    }    
+
+    .header__title {
+        font-size: 30px;
+    }
+
+    .app__header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 100px;
+    }
+
+    .header__container {
+        display: flex;
+        flex-direction: row;
+    }
 }
