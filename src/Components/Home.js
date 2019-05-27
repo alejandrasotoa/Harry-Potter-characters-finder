@@ -20,7 +20,6 @@ class Home extends React.Component {
       favoriteCharacters,
       favClicked,
       handleClickFav,
-      handleFav
     } = this.props;
 
     return (
