@@ -25,13 +25,18 @@ class App extends React.Component {
 
   componentDidMount () {
     this.fetchCharacters ();
-    const favCharacters = JSON.parse(localStorage.getItem('favCharacters'));
-    this.setState({favoriteCharacters: favCharacters});
+    const favCharacters = JSON.parse (localStorage.getItem ('favCharacters'));
+    if (favCharacters !== null) {
+      this.setState ({favoriteCharacters: favCharacters});
+    }
   }
 
   componentDidUpdate () {
     if (this.state.favoriteCharacters !== []) {
-      localStorage.setItem('favCharacters', JSON.stringify(this.state.favoriteCharacters));
+      localStorage.setItem (
+        'favCharacters',
+        JSON.stringify (this.state.favoriteCharacters)
+      );
     }
   }
 
@@ -53,7 +58,9 @@ class App extends React.Component {
   }
 
   handleClickFav () {
-    console.log(this.state.favoriteCharacters)
+    this.setState(prevState => ({
+      favClicked : !prevState.favClicked
+    }))
   }
 
   sortAlphabetical () {
@@ -102,13 +109,16 @@ class App extends React.Component {
   }
 
   handleFavorites (event) {
-    const newFavorite = event.currentTarget.parentElement.id;
+    const favValue = event.currentTarget.parentElement.id === "" ? event.currentTarget.id : event.currentTarget.parentElement.id;
+    const newFavorite = this.state.characters.find (
+      character => favValue === character.id
+    );
     this.setState (prevState => {
       let setFavorite;
-      if (prevState.favoriteCharacters.includes (newFavorite)) {
-        setFavorite = prevState.favoriteCharacters.filter (
-          fav => fav !== newFavorite
-        );
+      const removeValue = prevState.favoriteCharacters.findIndex(fav => newFavorite.id === fav.id);
+      if (removeValue >= 0) {
+        setFavorite = prevState.favoriteCharacters.filter(fav => fav.id !== favValue);
+        console.log(setFavorite);
       } else {
         setFavorite = [...prevState.favoriteCharacters, newFavorite];
       }

@@ -18,7 +18,7 @@ class CharacterCard extends React.Component {
               <i className="fas fa-info-circle characters__icon" />
             </Link>
             <i
-              className={`fas fa-heart characters__icon ${favoriteCharacters.includes (id) ? 'favorite' : 'favorite--icon'}`}
+              className={`fas fa-heart characters__icon ${favoriteCharacters.findIndex(fav => id === fav.id) >= 0 ? 'favorite' : 'favorite--icon'}`}
               onClick={handleFavorites}
             />
           </div>

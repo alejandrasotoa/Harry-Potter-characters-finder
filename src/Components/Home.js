@@ -4,6 +4,7 @@ import CharactersList from './CharactersList';
 import Filters from './Filters';
 import PropTypes from 'prop-types';
 import hpLogo from '../Images/hp-logo.svg';
+import FavoritesList from './FavoritesList';
 
 class Home extends React.Component {
   render () {
@@ -18,7 +19,8 @@ class Home extends React.Component {
       handleFavorites,
       favoriteCharacters,
       favClicked,
-      handleClickFav
+      handleClickFav,
+      handleFav
     } = this.props;
 
     return (
@@ -60,6 +62,12 @@ class Home extends React.Component {
             handleFavorites={handleFavorites}
             favoriteCharacters={favoriteCharacters}
           />
+          <FavoritesList 
+          favoriteCharacters={favoriteCharacters}
+          characters={characters}
+          favClicked= {favClicked}
+          handleFavorites={handleFavorites}
+          />
         </main>
       </div>
     );
@@ -77,7 +85,8 @@ Home.propTypes = {
   handleFavorites: PropTypes.func,
   favoriteCharacters: PropTypes.array,
   favClicked: PropTypes.bool,
-  handleClickFav: PropTypes.func
+  handleClickFav: PropTypes.func,
+  handleFav: PropTypes.func
 };
 
 export default Home;

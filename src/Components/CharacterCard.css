@@ -35,10 +35,6 @@
     width: 250px;
 }
 
-.character__photo:hover .character__more{
-    background-color:rgba(171,42,62,0.3);
-}
-
 .character__more {
     height: 300px;
     width: 250px;
@@ -46,6 +42,10 @@
     justify-content: flex-end;
     align-items: flex-end;
     position: absolute;
+}
+
+.character__photo:hover .character__more{
+    background-color:rgba(171,42,62,0.3);
 }
 
 .character__info--detail {
