@@ -118,7 +118,6 @@ class App extends React.Component {
       const removeValue = prevState.favoriteCharacters.findIndex(fav => newFavorite.id === fav.id);
       if (removeValue >= 0) {
         setFavorite = prevState.favoriteCharacters.filter(fav => fav.id !== favValue);
-        console.log(setFavorite);
       } else {
         setFavorite = [...prevState.favoriteCharacters, newFavorite];
       }
