@@ -10,15 +10,17 @@ class App extends React.Component {
     super (props);
     this.state = {
       characters: [],
+      favoriteCharacters: [],
       sortedCharacters: null,
       filterValue: '',
       searchClicked: false,
-      favoriteCharacters: []
+      favClicked: false,
     };
     this.handleFilter = this.handleFilter.bind (this);
     this.handleClickSearch = this.handleClickSearch.bind (this);
     this.handleSort = this.handleSort.bind (this);
-    this.handleFavorites = this.handleFavorites.bind(this);
+    this.handleFavorites = this.handleFavorites.bind (this);
+    this.handleClickFav = this.handleClickFav.bind (this);
   }
 
   componentDidMount () {
@@ -42,6 +44,10 @@ class App extends React.Component {
     this.setState (prevState => ({searchClicked: !prevState.searchClicked}));
   }
 
+  handleClickFav () {
+    console.log(this.state.favoriteCharacters)
+  }
+
   sortAlphabetical () {
     const sortedArray = [...this.state.characters];
     const sorted = sortedArray.sort ((a, b) => {
@@ -54,7 +60,7 @@ class App extends React.Component {
       return 0;
     });
     this.setState ({
-      sortedCharacters: sorted
+      sortedCharacters: sorted,
     });
   }
 
@@ -70,17 +76,17 @@ class App extends React.Component {
       return 0;
     });
     this.setState ({
-      sortedCharacters: sorted
+      sortedCharacters: sorted,
     });
   }
 
   handleSort (event) {
     const sortValue = event.currentTarget.value;
-    if (sortValue === "no-filter") {
+    if (sortValue === 'no-filter') {
       this.setState ({
-        sortedCharacters: null
+        sortedCharacters: null,
       });
-    } else if (sortValue === "alphabetical") {
+    } else if (sortValue === 'alphabetical') {
       this.sortAlphabetical ();
     } else {
       this.sortAge ();
@@ -89,15 +95,17 @@ class App extends React.Component {
 
   handleFavorites (event) {
     const newFavorite = event.currentTarget.parentElement.id;
-    this.setState(prevState => {
+    this.setState (prevState => {
       let setFavorite;
-      if (prevState.favoriteCharacters.includes(newFavorite)) {
-        setFavorite = prevState.favoriteCharacters.filter(fav => fav !== newFavorite);
+      if (prevState.favoriteCharacters.includes (newFavorite)) {
+        setFavorite = prevState.favoriteCharacters.filter (
+          fav => fav !== newFavorite
+        );
       } else {
         setFavorite = [...prevState.favoriteCharacters, newFavorite];
       }
-      return {favoriteCharacters: setFavorite}
-    })
+      return {favoriteCharacters: setFavorite};
+    });
   }
 
   render () {
@@ -106,7 +114,8 @@ class App extends React.Component {
       characters,
       searchClicked,
       sortedCharacters,
-      favoriteCharacters
+      favoriteCharacters,
+      favClicked,
     } = this.state;
     return (
       <Switch>
@@ -121,9 +130,11 @@ class App extends React.Component {
               handleClickSearch={this.handleClickSearch}
               searchClicked={searchClicked}
               handleSort={this.handleSort}
-              sortedCharacters= {sortedCharacters}
+              sortedCharacters={sortedCharacters}
               handleFavorites={this.handleFavorites}
               favoriteCharacters={favoriteCharacters}
+              favClicked={favClicked}
+              handleClickFav={this.handleClickFav}
             />
           )}
         />

@@ -11,6 +11,18 @@
     left:0;
     top: 180px;
     z-index: 1;
+    animation-name: show-filters;
+    animation-duration: 1s;
+}
+
+@keyframes show-filters {
+    0% {
+        transform: translateY(-100px)
+    }
+
+    100% {
+        transform: translateY(0px)
+    }
 }
 
 .filter__form {
@@ -37,8 +49,20 @@
     margin: 0;
 }
 
-.hidden {
-    display: none;
+.hidden__filter {
+    transform: translateY(-100px);
+    animation-name: hidde-filters;
+    animation-duration: 1s;
+}
+
+@keyframes hidde-filters {
+    0% {
+        transform: translateY(0px)
+    }
+
+    100% {
+        transform: translateY(-100px)
+    }
 }
 
 .order__form {

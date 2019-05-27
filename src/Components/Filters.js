@@ -6,7 +6,7 @@ class Filters extends React.Component {
   render () {
     const {filterValue, handleFilter, searchClicked, handleSort} = this.props;
     return (
-      <div className={`filter__container ${searchClicked ? '' : 'hidden'}`}>
+      <div className={`filter__container ${searchClicked ? '' : 'hidden__filter'}`}>
         <div className="filter__input--container">
           <label className="filter__form filter__label" htmlFor="filter__form">
             Filtrar por nombre
