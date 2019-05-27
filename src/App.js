@@ -25,6 +25,14 @@ class App extends React.Component {
 
   componentDidMount () {
     this.fetchCharacters ();
+    const favCharacters = JSON.parse(localStorage.getItem('favCharacters'));
+    this.setState({favoriteCharacters: favCharacters});
+  }
+
+  componentDidUpdate () {
+    if (this.state.favoriteCharacters !== []) {
+      localStorage.setItem('favCharacters', JSON.stringify(this.state.favoriteCharacters));
+    }
   }
 
   fetchCharacters () {
