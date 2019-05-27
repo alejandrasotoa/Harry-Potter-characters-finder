@@ -34,7 +34,7 @@ class FavoritesList extends React.Component {
         >
           <h2 className="favorite__title">Mis Favoritos</h2>
           <ul className="favorite__list">
-            {favList.length === 0 ? <p>Aún no hay favoritos para mostrar</p> : favList}
+            {favList.length === 0 ? <p className="no-favorites">Aún no hay favoritos para mostrar</p> : favList}
           </ul>
         </div>
       </div>

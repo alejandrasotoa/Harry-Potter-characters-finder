@@ -2,11 +2,11 @@
     position: fixed;
     top: 0;
     right: -270px;
-    width: 30vw;
+    width: 50vw;
     height: 100vh;
     background: white;
     box-sizing: border-box;
-    padding:  110px 0 0;
+    padding:  180px 10px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -89,4 +89,16 @@
     transform: translateY(-120px);
     animation-name: hidde-filters;
     animation-duration: 1s;
+}
+
+.no-favorites {
+    text-align: center;
+}
+
+@media all and (min-width: 768px) {
+    .favorite__container {
+        width: 30vw;
+        height: 100vh;
+        padding:  110px 0 0;
+    }
 }
