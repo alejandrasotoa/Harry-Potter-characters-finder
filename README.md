@@ -6,9 +6,9 @@ I used React to make this SPA. The API consulted was https://hp-api.herokuapp.co
 
 ## I want a copy of this project
 
-1 .Download or clone the project repository.
-2. Install dependencies with $ npm install.
-3. Run the project with $ npm start.
+1. Download or clone the project repository.
+2. Install dependencies with `$ npm install`.
+3. Run the project with `$ npm start`
 
 ## Author
 
