@@ -1,13 +1,15 @@
-# Buscador de personajes de Harry Potter
+# Harry Potter's characters finder
 
-¿Eres un verdadero fan de Harry Potter? ¡Pues ya tienes un sitio para guardar tus personajes favoritos!
+You're a truly Harry Potter fan? This is an app to look for you're favorites and have them in one place!
 
-## Información acerca del proyecto
-### Construido con
-Este proyecto ha sido creado usando React y CSS.
+I used React to make this SPA. The API consulted was https://hp-api.herokuapp.com/.
 
-## Quiero una copia del proyecto
-¡Gracias! A continuación, haz lo siguiente:
-1. Clona el repositorio del proyecto.
-2. Ejecuta el proyecto en el navegador con npm start.
-3. ¡ Listo !
+## I want a copy of this project
+
+1 .Download or clone the project repository.
+2. Install dependencies with $ npm install.
+3. Run the project with $ npm start.
+
+## Author
+
+- [Alejandra Soto Arevalo](https://www.linkedin.com/in/alejandrasotoa/)
